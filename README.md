@@ -17,13 +17,23 @@ python developer_content_clip_rights_metadata_checker.py --help
 
 ## Run
 ```bash
-$ python developer_content_clip_rights_metadata_checker.py examples/clip-good.json
+$ python developer_content_clip_rights_metadata_checker.py examples/clip-good.json --summary
+Checked: 1  Passed: 1  Failed: 0  Warnings: 0
 | PASS | examples/clip-good.json | - | - |
 ```
 
+Scan a whole folder of JSON, CSV, TXT, or Markdown metadata files:
+
+```bash
+python developer_content_clip_rights_metadata_checker.py ./clips --json --summary
+```
+
+The checker validates required fields, URL scheme, clear consent wording, known license values, and whether the AI disclosure is descriptive enough for viewer-facing provenance.
+
 ## Self-check
 ```bash
-python -m unittest discover -s tests
+python -m unittest discover -s tests -v
+python developer_content_clip_rights_metadata_checker.py examples --json --summary
 ```
 
 ## Example input/output
